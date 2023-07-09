@@ -13,8 +13,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./user
 
     steps:
     - uses: actions/checkout@v2
@@ -26,7 +24,7 @@ jobs:
         distribution: 'temurin'
         
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x user/gradlew
     
     - name: Build with Gradle
-      run: ./gradlew clean build
+      run: ./user/gradlew clean build
