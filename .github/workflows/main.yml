@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./user
 
     steps:
 
@@ -23,9 +26,9 @@ jobs:
         distribution: 'temurin'
         
     - name: Grant execute permission for gradlew
-      run: chmod +x user/gradlew
+      run: chmod +x gradlew
       
     # 3) Gradle 사용. arguments 를 붙이면 뒤에 그대로 실행된다고 생각하면 됨
     # 이 워크플로우는 gradle clean build 를 수행함
     - name: Build with Gradle
-      run: ./user/gradlew clean build
+      run: ./gradlew clean build
